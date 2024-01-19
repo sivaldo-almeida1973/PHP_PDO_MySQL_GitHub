@@ -15,16 +15,23 @@
         ';
 
         $stmt = $conexao->query($query);
-        $lista = $stmt->fetchAll();
+        // $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);//indices associativos
+        //$lista = $stmt->fetchAll(PDO::FETCH_NUM);//indices numericos
+        // $lista = $stmt->fetchAll(PDO::FETCH_BOTH);//indices numericos e associatiovs
+        $lista = $stmt->fetchAll(PDO::FETCH_OBJ);//array de obj
 
         echo '<pre>';
         print_r($lista);
         echo '</pre>';
 
 
-        echo $lista[0]['nome'];
-        echo '<pre>';
-        echo $lista[2]['email'];
+        // echo $lista[1]['nome'];
+        // echo '<pre>';
+        // echo $lista[2]['email'];
+
+        // recuperar do array de obj
+        echo $lista[1]->nome;
+
 
               
     }catch(PDOException $e) {
