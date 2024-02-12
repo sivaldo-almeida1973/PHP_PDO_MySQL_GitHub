@@ -14,12 +14,18 @@
         
         ';
 
-        $stmt = $conexao->query($query);
+        // $stmt = $conexao->query($query);
         // $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);//indices associativos
         //$lista = $stmt->fetchAll(PDO::FETCH_NUM);//indices numericos
         // $lista = $stmt->fetchAll(PDO::FETCH_BOTH);//indices numericos e associatiovs
         // $lista = $stmt->fetchAll(PDO::FETCH_OBJ);//array de obj
-        $lista_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);//recupera apenas 1 rg
+        // $lista_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);//recupera apenas 1 rg
+
+        foreach($conexao->query($query) as $key => $value){
+            print_r($value[1]);
+            echo '<hr>';
+        };
+
 
         // echo '<pre>';
         // print_r($lista_usuarios);
@@ -33,10 +39,10 @@
         // recuperar do array de obj
         // echo $usuario['nome'];
 
-        foreach($lista_usuarios as $key => $value) {
-            print_r($value['nome']);
-            echo '<hr>';
-        }
+        // foreach($lista_usuarios as $key => $value) {
+        //     print_r($value['nome']);
+        //     echo '<hr>';
+        // }
 
 
               
