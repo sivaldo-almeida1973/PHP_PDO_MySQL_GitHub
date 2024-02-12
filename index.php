@@ -18,11 +18,12 @@
         // $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);//indices associativos
         //$lista = $stmt->fetchAll(PDO::FETCH_NUM);//indices numericos
         // $lista = $stmt->fetchAll(PDO::FETCH_BOTH);//indices numericos e associatiovs
-        $lista = $stmt->fetchAll(PDO::FETCH_OBJ);//array de obj
+        // $lista = $stmt->fetchAll(PDO::FETCH_OBJ);//array de obj
+        $lista_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);//recupera apenas 1 rg
 
-        echo '<pre>';
-        print_r($lista);
-        echo '</pre>';
+        // echo '<pre>';
+        // print_r($lista_usuarios);
+        // echo '</pre>';
 
 
         // echo $lista[1]['nome'];
@@ -30,7 +31,12 @@
         // echo $lista[2]['email'];
 
         // recuperar do array de obj
-        echo $lista[1]->nome;
+        // echo $usuario['nome'];
+
+        foreach($lista_usuarios as $key => $value) {
+            print_r($value['nome']);
+            echo '<hr>';
+        }
 
 
               
